@@ -1,4 +1,4 @@
-package br.com.JMCursos.service;
+package br.com.JMCursos.services;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 
 import org.springframework.stereotype.Service;
 
-import br.com.JMCursos.model.Person;
+import br.com.JMCursos.models.Person;
 
 
 //Anotação service. Significa que a classe que vai instanciar um novo objeto dessa classe, não precisa dar um "new"

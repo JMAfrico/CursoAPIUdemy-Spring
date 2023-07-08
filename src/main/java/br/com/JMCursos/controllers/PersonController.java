@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.JMCursos.model.Person;
-import br.com.JMCursos.service.PersonService;
+import br.com.JMCursos.models.Person;
+import br.com.JMCursos.services.PersonService;
 import br.com.JMCursos.utils.UtilitariosMath;
 
 @RestController
