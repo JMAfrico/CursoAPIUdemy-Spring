@@ -10,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+//Representa uma tabela no banco de dados = "@Entity"
 @Entity
 @Table(name="person")
 public class Person implements Serializable{
@@ -17,6 +18,7 @@ public class Person implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 
+	//Representa uma chave primaria, do tipo auto increment
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

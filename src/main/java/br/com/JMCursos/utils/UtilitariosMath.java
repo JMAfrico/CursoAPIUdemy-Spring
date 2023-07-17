@@ -1,6 +1,6 @@
 package br.com.JMCursos.utils;
 
-import br.com.JMCursos.exception.UnssuportedMathOperationException;
+import br.com.JMCursos.exception.ResourceNotFoundException;
 
 public class UtilitariosMath {
 
@@ -13,7 +13,7 @@ public class UtilitariosMath {
 		Boolean validacao = um.matches("[-+]?[0-9]*\\.?[0-9]+");
 	
 		if(validacao.equals(false)) {
-			throw new UnssuportedMathOperationException("Erro , você não digitou numero");
+			throw new ResourceNotFoundException("Erro , você não digitou numero");
 		}
 		return Double.parseDouble(um);
 	}
