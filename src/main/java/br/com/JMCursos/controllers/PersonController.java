@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.JMCursos.data.vo.v1.PersonVO;
+import br.com.JMCursos.models.Person;
 import br.com.JMCursos.services.PersonService;
 import br.com.JMCursos.utils.UtilitariosMath;
 
@@ -34,13 +34,13 @@ public class PersonController {
 	//id= path, method= get, produz JSON,
 	//anotação @PathVariable = valores que passamos por parametro na URL
 	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public PersonVO findById(@PathVariable(value = "id") Long id) {
+	public Person findById(@PathVariable(value = "id") Long id) {
 		return personService.findById(id);
 		
 	}
 
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<PersonVO> findAll() {
+	public List<Person> findAll() {
 		return personService.findAll();
 		
 	}
@@ -48,7 +48,7 @@ public class PersonController {
 	//consome e produz JSON,
 	//anotação @RequestBody = valores que passamos no body da requisição
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public PersonVO create(@RequestBody PersonVO person) {
+	public Person create(@RequestBody Person person) {
 		return personService.create(person);
 		
 	}
@@ -59,7 +59,7 @@ public class PersonController {
 		
 	}
 	@PutMapping(produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
-	public PersonVO update(@RequestBody PersonVO person) {
+	public Person update(@RequestBody Person person) {
 		return personService.update(person);
 		
 	}
