@@ -6,8 +6,8 @@ import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.JMCursos.data.vo.v1.PersonVO;
 import br.com.JMCursos.exception.ResourceNotFoundException;
-import br.com.JMCursos.models.Person;
 import br.com.JMCursos.repositories.PersonRepository;
 
 
@@ -22,20 +22,20 @@ public class PersonService {
 	@Autowired
 	PersonRepository personRepository;
 	
-	public List<Person> findAll() {
+	public List<PersonVO> findAll() {
 		logger.info("Finding all People");
-//		List<Person> persons = new ArrayList<>();
+//		List<PersonVO> persons = new ArrayList<>();
 //		for (int i =0;i<9; i++) {
-//			Person person = mockPerson(i);
+//			PersonVO person = mockPerson(i);
 //			persons.add(person);
 //		}
 		return personRepository.findAll();
 //		return persons;
 	}
 	
-//	private Person mockPerson(int i) {
-//		logger.info("Finding one Person");
-//		Person person = new Person();
+//	private PersonVO mockPerson(int i) {
+//		logger.info("Finding one PersonVO");
+//		PersonVO person = new PersonVO();
 //		person.setId(counter.incrementAndGet());
 //		person.setFirstName("Pessoa "+i);
 //		person.setLastName("Sobrenome" +i);
@@ -44,9 +44,9 @@ public class PersonService {
 //		return person;
 //	}
 
-	public Person findById(Long id) {
-		logger.info("Finding one Person");
-//		Person person = new Person();
+	public PersonVO findById(Long id) {
+		logger.info("Finding one PersonVO");
+//		PersonVO person = new PersonVO();
 //		person.setId(counter.incrementAndGet());
 //		person.setFirstName("Joao");
 //		person.setLastName("Marcos");
@@ -55,14 +55,14 @@ public class PersonService {
 		return personRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("No Records found for this id"));
 	}
 	
-	public Person create(Person person) {
-		logger.info("Create new Person");
+	public PersonVO create(PersonVO person) {
+		logger.info("Create new PersonVO");
 		return personRepository.save(person);
 	}
 
-	public Person update(Person person) {
-		logger.info("Update Person");
-		Person entity = personRepository.findById(person.getId()).orElseThrow(() -> new ResourceNotFoundException("No Records found for this id"));
+	public PersonVO update(PersonVO person) {
+		logger.info("Update PersonVO");
+		PersonVO entity = personRepository.findById(person.getId()).orElseThrow(() -> new ResourceNotFoundException("No Records found for this id"));
 		entity.setFirstName(person.getFirstName());
 		entity.setLastName(person.getLastName());
 		entity.setAdress(person.getAdress());
@@ -71,8 +71,8 @@ public class PersonService {
 	}
 	
 	public void delete(Long id) {
-		logger.info("Delete Person");
-		Person entity = personRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("No Records found for this id"));
+		logger.info("Delete PersonVO");
+		PersonVO entity = personRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("No Records found for this id"));
 		personRepository.delete(entity);
 	}
 	
